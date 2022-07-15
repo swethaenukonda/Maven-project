@@ -10,7 +10,7 @@ pipeline {
     stages{
         stage("Checkout the project") {
            steps{
-               git branch: 'master', url: 'https://github.com/devopscbabu/Myproject-Maven.git'
+               git branch: 'master', url: 'https://github.com/devopscbabu/Java-Project.git'
            } 
         }
         stage("Build the package"){
