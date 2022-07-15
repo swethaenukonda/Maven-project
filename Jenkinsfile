@@ -40,7 +40,7 @@ pipeline {
         
         stage('Ansible Deploy'){
 	steps {
-		ansiblePlaybook installation: 'ansible', inventory: 'deploy.inv', playbook: 'deployment.yml'
+		ansiblePlaybook installation: 'ansible', inventory: '/var/lib/jenkins/workspace/Pipeline-ECR-Deploy2/deploy.inv', playbook: '/var/lib/jenkins/workspace/Pipeline-ECR-Deploy2/deployment.yml'
 	}
      }
   }  
