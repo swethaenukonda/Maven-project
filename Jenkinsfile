@@ -28,20 +28,20 @@ pipeline {
         }
       }
     }
-        stage ('Deploy the Image to Amazon ECR') {
-        steps {
-           script {
-           docker.withRegistry("https://" + registry, "ecr:us-east-1:" + registryCredential ) {
-           dockerImage.push()
+   //     stage ('Deploy the Image to Amazon ECR') {
+   //     steps {
+   //        script {
+   //        docker.withRegistry("https://" + registry, "ecr:us-east-1:" + registryCredential ) {
+   //        dockerImage.push()
               }
            }
         }
      }
         
-        stage('Ansible Deploy'){
-	steps {
-		ansiblePlaybook installation: 'ansible', inventory: '/var/lib/jenkins/workspace/Pipeline-ECR-Deploy2/deploy.inv', playbook: '/var/lib/jenkins/workspace/Pipeline-ECR-Deploy2/deployment.yml'
-	}
-     }
+        stage('Execute Ansible') {
+           steps {
+                ansiblePlaybook credentialsId: 'ansible-jenkins', disableHostKeyChecking: true, installation: 'ansible', inventory: 'deploy.inv', playbook: 'deployment.yml'
+            }    
+        }    
   }  
 }
