@@ -39,12 +39,9 @@ pipeline {
      }
         
         stage('Ansible Deploy'){
-            ansiblePlaybook(
-                inventory: 'deploy.inv',
-                installation: 'ansible',
-                limit: '',
-                playbook: 'deployment.yml'
-                )
-                }
+	steps {
+		ansiblePlaybook installation: 'ansible', inventory: 'deploy.inv', playbook: 'deployment.yml'
+	}
+     }
   }  
 }
