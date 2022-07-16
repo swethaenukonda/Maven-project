@@ -41,7 +41,7 @@ pipeline {
         stage('Execute Ansible') {
            steps {
      //           ansiblePlaybook credentialsId: 'ansible-jenkins', installation: 'ansible', inventory: 'deploy.inv', playbook: 'deployment.yml'
-		  ansiblePlaybook installation: 'ansible', disableHostKeyChecking: true, playbook: 'deployment.yml'
+	//	  ansiblePlaybook installation: 'ansible', disableHostKeyChecking: true, playbook: 'deployment.yml'
             }    
         }    
   }  
