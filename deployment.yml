@@ -1,5 +1,5 @@
 ---
-- hosts: 44.202.20.128
+- hosts: deploy
   become : yes
   become_user: ansadmin
   tasks: 
