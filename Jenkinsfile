@@ -45,5 +45,13 @@ pipeline {
                 }
             }   
         }
+        //stage('Deploy the image to Amazon ECR') {
+        //    steps {
+         //       script
+       //         docker.WithRegistry("http://" + registry, "ecr:eu-west-2:" + registry credentails) {
+        //            dockerImage.push()
+      //    }
+    //    }
+   //   }
     }
 }
