@@ -44,7 +44,7 @@ pipeline {
                         
                     }
                 }    
-	}
+	//}
      //   stage('Execute Ansible') {
        //    steps {
       //       ansiblePlaybook credentialsId: 'ansible-jenkins', installation: 'ansible', inventory: '/var/lib/jenkins/workspace/Pipeline-ECR-Deploy2/deploy.inv', playbook: 'deployment.yml'
