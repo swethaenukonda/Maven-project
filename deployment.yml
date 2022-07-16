@@ -1,5 +1,5 @@
 ---
-- hosts:devservers
+- hosts: devservers
   remote_user: ansadmin
   become: yes
   pre_tasks:
