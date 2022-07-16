@@ -23,7 +23,7 @@ pipeline {
         stage('sonarqube checks') {
             steps {
                 script {
-                withSonarQubeEnv(installationName: 'sonarqubecloud', credentialsId: 'Sonarscanneroncloud') {
+                withSonarQubeEnv(installationName: 'sonarscanner', credentialsId: 'Sonarscanneroncloud') {
                  sh 'mvn clean package sonar:sonar'
                  }
                     timeout(time: 1, unit: 'HOURS') {
