@@ -40,7 +40,7 @@ pipeline {
         
         stage('Execute Ansible') {
            steps {
-                ansiblePlaybook installation: 'ansible', inventory: 'deploy.inv', playbook: 'deployment.yml'
+                ansiblePlaybook credentialsId: 'ansible-jenkins', installation: 'ansible', inventory: 'deploy.inv', playbook: 'deployment.yml'
             }    
         }    
   }  
