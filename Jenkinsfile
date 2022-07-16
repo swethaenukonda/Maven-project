@@ -40,7 +40,7 @@ pipeline {
         
         stage('Execute Ansible') {
            steps {
-                ansiblePlaybook credentialsId: 'ansible-jenkins', disableHostKeyChecking: true, installation: 'ansible', inventory: 'deploy.inv', playbook: 'deployment.yml'
+                ansiblePlaybook installation: 'ansible', inventory: 'deploy.inv', playbook: 'deployment.yml'
             }    
         }    
   }  
