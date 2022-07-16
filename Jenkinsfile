@@ -3,6 +3,9 @@ pipeline {
     tools {
        maven 'M2_HOME'
     }
+    enivonment {
+        registry = '660181585180.dkr.ecr.eu-west-2.amazonaws.com/imagerepo'
+    }
     stages {
         stage('Hello') {
             steps {
