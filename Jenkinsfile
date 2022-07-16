@@ -37,12 +37,19 @@ pipeline {
     //       }
     //    }
    //  }
-        
         stage('Execute Ansible') {
-           steps {
-             ansiblePlaybook credentialsId: 'ansible-jenkins', installation: 'ansible', inventory: '/var/lib/jenkins/workspace/Pipeline-ECR-Deploy2/deploy.inv', playbook: 'deployment.yml'
+	steps {
+                sshagent(['sshkey']) {
+                sh "ssh -o StrictHostKeyChecking=no ansadmin@ip-172-31-85-211 -C \"sudo ansible-playbook deployment.yaml\""
+                        
+                    }
+                }    
+	}
+     //   stage('Execute Ansible') {
+       //    steps {
+      //       ansiblePlaybook credentialsId: 'ansible-jenkins', installation: 'ansible', inventory: '/var/lib/jenkins/workspace/Pipeline-ECR-Deploy2/deploy.inv', playbook: 'deployment.yml'
 	//	  ansiblePlaybook installation: 'ansible', disableHostKeyChecking: true, playbook: 'deployment.yml'
-            }    
-        }    
+      //      }    
+      //  }    
   }  
 }
