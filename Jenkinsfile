@@ -39,7 +39,7 @@ pipeline {
    //  }
         stage('Execute Ansible') {
 	steps {
-                sshagent(['sshkey']) {
+         //       sshagent(['sshkey']) {
                 sh "ssh -o StrictHostKeyChecking=no ansadmin@ip-172-31-85-211 -C \"sudo ansible-playbook deployment.yaml\""
                         
                     }
