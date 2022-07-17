@@ -56,6 +56,7 @@ pipeline {
         }
       }
     }
+  }
     post { 
         success { 
             mail bcc: '', body: 'Pipeline Build is Successfully Executed', cc:'', from: 'devopsuser12@gmail.com', replyTo: '', subject: ' The Pipeline is Success', to: 'devopsuser12@gmail.com' 
@@ -64,5 +65,4 @@ pipeline {
             mail bcc: '', body: 'Pipeline Build is Failed while Executing', cc:'', from: 'devopsuser12@gmail.com', replyTo: '', subject: ' The Pipeline is Failure', to: 'devopsuser12@gmail.com'
         }
     }
-}
 }
