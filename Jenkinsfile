@@ -25,21 +25,22 @@ pipeline {
                 sh 'mvn clean package  -DskipTests'
             }
         }
-     //   stage('sonarqube checks') {
-      //      steps {
-      //          script {
-     //           withSonarQubeEnv(installationName: 'Sonarscanner', credentialsId: 'SonarCloud') {
-     //            sh 'mvn clean package sonar:sonar'
-     //            }
+        stage('sonarqube checks') {
+            steps {
+                script {
+        //        withSonarQubeEnv(installationName: 'Sonarscanner', credentialsId: 'SonarCloud') {
+                  withSonarQubeEnv(credentialsId: 'sonaranalysis', installationName: 'Sonaranalysisserver') {  
+                 sh 'mvn clean package sonar:sonar'
+                 }
     //                timeout(time: 3, unit: 'MINUTES') {
     //                   def qg = waitForQualityGate()
     //                if (qg.status != 'OK') {
     //                   error "Pipeline aborted due to quality gate failure: ${qg.status}"
     //                    }
     //            }
-   //         }
-   //     }
-  //  }
+           }
+        }
+   }
         stage('Build the Image') {
             steps {
                 script {
