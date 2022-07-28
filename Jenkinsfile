@@ -29,11 +29,13 @@ pipeline {
             steps {
                 script {
         //        withSonarQubeEnv(installationName: 'Sonarscanner', credentialsId: 'SonarCloud') {
-                  withSonarQubeEnv(credentialsId: 'sonarkey', installationName: 'SonarCloud') {
+       //           withSonarQubeEnv(credentialsId: 'sonarkey', installationName: 'SonarCloud') {
         //            withSonarQubeEnv(credentialsId: 'sonarkey') {
         //         sh 'mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=devopsjava'
         //         sh   'mvn compile org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=devopsjava -Dsonar.login=sonarkey'
-                 sh 'mvn clean package sonar:sonar'
+                   withSonarQubeEnv(credentialsId: '0943cf67f0a6be1be44b09bc', installationName: 'SonarCloud') { // You can override the credential to be used
+                   sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
+                 
                  }
                     timeout(time: 3, unit: 'MINUTES') {
                        def qg = waitForQualityGate()
