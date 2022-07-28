@@ -30,8 +30,9 @@ pipeline {
                 script {
         //        withSonarQubeEnv(installationName: 'Sonarscanner', credentialsId: 'SonarCloud') {
         //          withSonarQubeEnv(credentialsId: 'sonarkey', installationName: 'sonarqubecloud') {
-                    withSonarQubeEnv(credentialsId: 'sonarkey') {
-                 sh 'mvn clean package sonar:sonar'
+        //            withSonarQubeEnv(credentialsId: 'sonarkey') {
+                 sh 'mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=devopsjava'
+       //          sh 'mvn clean package sonar:sonar'
                  }
                     timeout(time: 3, unit: 'MINUTES') {
                        def qg = waitForQualityGate()
