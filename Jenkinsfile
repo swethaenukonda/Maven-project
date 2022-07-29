@@ -29,12 +29,12 @@ pipeline {
             steps {
                 script {
         //        withSonarQubeEnv(installationName: 'Sonarscanner', credentialsId: 'SonarCloud') {
-       //           withSonarQubeEnv(credentialsId: 'sonarkey', installationName: 'SonarCloud') {
-        //            withSonarQubeEnv(credentialsId: 'sonarkey') {
+                  withSonarQubeEnv(credentialsId: 'sonarkey', installationName: 'SonarCloud') {
+                  sh 'mvn sonar:sonar'
         //         sh 'mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=devopsjava'
         //         sh   'mvn compile org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=devopsjava -Dsonar.login=sonarkey'
-                   withSonarQubeEnv(credentialsId: '572e91cae5e6d11184709650931ea09acd87311e', installationName: 'SonarCloud') { // You can override the credential to be used
-                   sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
+        //           withSonarQubeEnv(credentialsId: '572e91cae5e6d11184709650931ea09acd87311e', installationName: 'SonarCloud') { // You can override the credential to be used
+        //           sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
                  
                  }
                     timeout(time: 3, unit: 'MINUTES') {
