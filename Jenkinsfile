@@ -31,7 +31,7 @@ pipeline {
         //        withSonarQubeEnv(installationName: 'Sonarscanner', credentialsId: 'SonarCloud') {
         //          withSonarQubeEnv(credentialsId: 'sonarkey', installationName: 'SonarCloud') {
         //          sh 'mvn sonar:sonar'
-                  withSonarQubeEnv(credentialsId: 'sonarprojecttoken', installationName: 'sonarscannerproject') {
+                  withSonarQubeEnv(credentialsId: 'sonarlogin', installationName: 'sonarqubelocally') {
                   sh 'mvn sonar:sonar'    
                       
                  }
