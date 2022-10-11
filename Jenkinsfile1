@@ -3,6 +3,7 @@ pipeline {
     tools {
        maven 'M2_HOME'
     }
+    
     stages {
         stage('Hello') {
             steps {
