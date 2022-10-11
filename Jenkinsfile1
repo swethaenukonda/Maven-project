@@ -1,1 +1,23 @@
-
+pipeline {
+    agent any
+    tools {
+       maven 'M2_HOME'
+    }
+    
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                echo 'hi'
+            }
+        }
+        stage ('checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/devopscbabu/Java-Project.git']]])
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
