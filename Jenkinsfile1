@@ -23,7 +23,11 @@ pipeline {
         }
         stage('SonarQube') {
             steps {
-                sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=JavaProject2'
+            script{
+            withSonarQubeEnv(installationName: 'SonarScanner', credentialsId: 'ProjectSonarToken') {
+            sh mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=JavaProject2
+                }
+
             }
         }
      }
