@@ -3,7 +3,9 @@ pipeline {
     tools {
        maven 'M2_HOME'
     }
-    
+    environment {
+       registry = '|'
+       }
     stages {
         stage('Hello') {
             steps {
