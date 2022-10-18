@@ -4,7 +4,7 @@ pipeline {
        maven 'M2_HOME'
     }
     environment {
-       registry = 660181585180.dkr.ecr.us-east-1.amazonaws.com/dockerimagerepo
+       registry = '660181585180.dkr.ecr.us-east-1.amazonaws.com/dockerimagerepo'
        }
     stages {
         stage('Hello') {
