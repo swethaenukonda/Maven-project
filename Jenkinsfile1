@@ -59,8 +59,8 @@ pipeline {
          stage('Deploy the Image to AWS ECR') {
          steps {
          script {
-              docker.withRegistry( '', registryCredentials) {
-              dockerImage.push
+              docker.withRegistry("https:// + registry", "ecr:us-east-1: + registryCredentials) {
+              dockerImage.push()
               }
             }
           }
