@@ -66,9 +66,9 @@ pipeline {
           }
         }  
         post {
-           success {
-             slackSend "Image Deployed Successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER}"
-             }
-           }  
+            success {
+                slackSend "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+            }
+        }  
 }
 }
