@@ -68,10 +68,10 @@ pipeline {
 }
  post {
        success {
-      slackSend (channel: "#jenkins-feedback", token: "slack-token", "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+      slackSend (channel: "#jenkins-feedback", token: "slack-token", 'Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)'
        }
        failure {
-       slackSend (channel: "#jenkins-feedback", token: "slack-token", "failOnError:true message:"Build failed  - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+       slackSend (channel: "#jenkins-feedback", token: "slack-token", 'failOnError:true message:"Build failed  - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)'
         }
         }
     }
