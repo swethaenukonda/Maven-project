@@ -66,21 +66,13 @@ pipeline {
           }
          } 
 }
-post {
-        always {
-            script {
-                BUILD_USER = getBuildUser()
-            }
-            echo 'I will always say hello in the console.'
-            slackSend channel: '#jenkins-feedback',
-                token: 'slack-token',
-                color: COLOR_MAP[currentBuild.currentResult],
-                message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n More info at: ${env.BUILD_URL}"
+ post {
+       success {
+      slackSend (channel: "#jenkins-feedback", token: "slack-token", "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+       }
+       failure {
+       slackSend (channel: "#jenkins-feedback", token: "slack-token", "failOnError:true message:"Build failed  - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+        }
         }
     }
-// post{
- //       always{
-   //         slackSend( channel: "#jenkins-feedback", token: "slack-token", color: "good", message: "Test Email")
- //       }
- //   }
 }
