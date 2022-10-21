@@ -51,15 +51,16 @@ pipeline {
          stage('Building Docker Image') {
          steps {
          script {
-             dockerImage = docker.build registry + ":$BUILD_NUMBER"
+             dockerImage = dockerbuild registry + ":$BUILD_NUMBER"
+        //     dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
               }
            }
          stage('Deploy the Image to AWS ECR') {
          steps {
          script {
-        //      docker.withRegistry("https://" + registry, "ecr:us-east-1:" + registryCredentials) {
-        //      dockerImage.push()
+              docker.withRegistry("https://" + registry, "ecr:us-east-1:" + registryCredentials) {
+              dockerImage.push()
               }
             }
           }
@@ -76,6 +77,6 @@ pipeline {
       slackSend (channel: "#jenkins-feedback", token: "slack-token", color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
 
       
-  //  }
+    }
   }
 }
