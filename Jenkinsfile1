@@ -74,5 +74,5 @@ pipeline {
        slackSend (channel: "#jenkins-feedback", token: "slack-token", 'failOnError:true message:"Build failed  - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)'
         }
         }
-    }
+  
 }
