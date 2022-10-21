@@ -66,9 +66,9 @@ pipeline {
           }
          } 
 }
- post {
-       success {
-                slackSend "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
-            }
-        }  
+ post{
+        always{
+            slackSend( channel: "#jenkins-feedback", token: "slack-token", color: "good", message: "Test Email")
+        }
+    }
 }
