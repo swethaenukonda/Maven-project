@@ -65,5 +65,10 @@ pipeline {
             }
           }
         }  
+        post {
+           success {
+             slackSend "Image Deployed Successfully - $(env.JOB_NAME} ${env.BUILD_NUMBER}
+             }
+           }  
 }
 }
