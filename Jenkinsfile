@@ -18,7 +18,7 @@ pipeline {
       steps {
          script {
          withSonarQubeEnv(installationName: 'sonar-9', credentailsId: 'jenkins-sonar-token') {   
-         mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=jenkinspipeline
+         sh 'mvn sonar:sonar'
                 }
             }
         } 
