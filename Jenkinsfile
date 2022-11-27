@@ -17,8 +17,12 @@ pipeline {
     stage('Sonar Quality Analysis'){
       steps {
          script {
-         withSonarQubeEnv('installationName: 'sonar-9', credentailsId: 'jenkins-sonar-token') {   
+         withSonarQubeEnv(installationName: 'sonar-9', credentailsId: 'jenkins-sonar-token') {   
          mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=jenkinspipeline
+                }
+            }
+        } 
+     } 
   }  
    post {
       success{ 
