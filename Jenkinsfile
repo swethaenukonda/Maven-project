@@ -14,5 +14,13 @@ pipeline {
         sh 'mvn clean compile'
       }
     }
-  }      
+  }  
+   post {
+      success{ 
+         slackSend channel: 'devops-pipeline-demo', message: 'Pipeline Built Successfully'
+      }
+      failure {
+         slackSend channel: 'devops-pipeline-demo', message: 'Pipeline Failed'
+      }
+   }    
 }
