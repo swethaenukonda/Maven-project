@@ -45,7 +45,7 @@ pipeline {
      stage('Push the Docker Image to ECR'){
       steps {
          script {
-         withDockerRegistry("http://" + registry, "ecr:ap-south-1:" + registryCredential) { 
+         docker.withRegistry("http://" + registry, "ecr:ap-south-1:" + registryCredential) { 
          dockerImage.push()
                             }
                      }
