@@ -9,9 +9,9 @@ pipeline {
         git branch: 'main', url: 'https://github.com/cbabu85/Java-Maven-Pipline.git'
       }
     }
-    stage('Build'){
+    stage('Package'){
       steps {
-        sh 'mvn clean compile'
+        sh 'mvn clean package'
       }
     }
 //    stage('Sonar Quality Analysis'){
