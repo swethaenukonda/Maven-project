@@ -4,7 +4,7 @@ pipeline {
      maven 'M2_HOME'
    }
    environment {
-      registry = '|'
+      registry = '107414687854.dkr.ecr.ap-south-1.amazonaws.com/demoimagerepo'
    }
   stages{
     stage('checkout the project') {
