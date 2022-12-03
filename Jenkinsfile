@@ -3,6 +3,9 @@ pipeline {
    tools {
      maven 'M2_HOME'
    }
+   environment {
+      registry = '|'
+   }
   stages{
     stage('checkout the project') {
       steps {
