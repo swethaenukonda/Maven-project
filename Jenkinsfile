@@ -14,22 +14,22 @@ pipeline {
         sh 'mvn clean compile'
       }
     }
-    stage('Sonar Quality Analysis'){
-      steps {
-         script {
-         withSonarQubeEnv(installationName: 'sonar-9', credentailsId: 'jenkins-sonar-token') {   
-         sh 'mvn sonar:sonar'
-                }
-             timeout(time: 1, unit: 'HOURS') {
-              def qg = waitForQualityGate()
-              if (qg.status != 'OK') {
-                  error "Pipeline aborted due to quality gate failure: ${qg.status}"
+//    stage('Sonar Quality Analysis'){
+//      steps {
+//         script {
+//         withSonarQubeEnv(installationName: 'sonar-9', credentailsId: 'jenkins-sonar-token') {   
+//         sh 'mvn sonar:sonar'
+//                }
+//             timeout(time: 1, unit: 'HOURS') {
+//              def qg = waitForQualityGate()
+//              if (qg.status != 'OK') {
+ //                 error "Pipeline aborted due to quality gate failure: ${qg.status}"
              
-                    }
-                }
-            }
-        } 
-     }
+//                    }
+//                }
+//            }
+ //       } 
+//     }
      
          
   }   
