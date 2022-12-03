@@ -5,6 +5,8 @@ pipeline {
    }
    environment {
       registry = '107414687854.dkr.ecr.ap-south-1.amazonaws.com/demoimagerepo'
+      registryCredentails = 'Jenkins-ecr-login-credentails'
+     
    }
   stages{
     stage('checkout the project') {
@@ -40,6 +42,15 @@ pipeline {
             }
         }
      }
+     stage('Push the Docker Image to ECR'){
+      steps {
+         script {
+         withDockerRegistry("http://" + registry", "ecr:ap-south-1:"+ registryCredentails') { 
+         dockerImage.push()
+                            }
+                     }
+               }
+        }
   }   
                  
    post {
