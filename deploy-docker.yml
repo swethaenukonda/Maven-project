@@ -4,7 +4,7 @@
   tasks:
     - name: Install java-11
       apt:
-        name: Install openjdk-11-jdk
+        name: openjdk-11-jdk
         state: present
     - name: Set JAVA_HOME
       shell: sudo echo "export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64" >> ~/.bashrc
