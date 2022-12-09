@@ -51,6 +51,11 @@ pipeline {
                      }
                }
         }
+     stage('Ansible Deploy'){
+      steps {
+         ansiblePlaybook credentialsId: 'deploy-server', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'deploy-docker.yml'
+            }
+       }
   }   
                  
  //  post {
