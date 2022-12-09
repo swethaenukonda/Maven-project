@@ -53,12 +53,12 @@ pipeline {
         }
   }   
                  
-   post {
-      success{ 
-         slackSend channel: 'devops-pipeline-demo', message: 'Pipeline Built Successfully'
-      }
-      failure {
-         slackSend channel: 'devops-pipeline-demo', message: 'Pipeline Failed'
-      }
-   }    
+ //  post {
+ //     success{ 
+ //        slackSend channel: 'devops-pipeline-demo', message: 'Pipeline Built Successfully'
+//      }
+//      failure {
+//         slackSend channel: 'devops-pipeline-demo', message: 'Pipeline Failed'
+ //     }
+//   }    
 }
