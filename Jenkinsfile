@@ -3,11 +3,7 @@ pipeline {
    tools {
      maven 'M2_HOME'
    }
-   environment {
-      registry = '107414687854.dkr.ecr.ap-south-1.amazonaws.com/demoimagerepo'
-      registryCredential = 'Jenkins-ecr-login-credentails'
-     
-   }
+ 
   stages{
     stage('checkout the project') {
       steps {
@@ -35,13 +31,13 @@ pipeline {
 //            }
  //       } 
 //     }
-//     stage('Build the Docker Image'){
-//      steps {
-//         script {
-//        dockerImage = docker.build registry + ":$BUILD_NUMBER"
-//            }
-//        }
-//     }
+     stage('Build the Docker Image'){
+      steps {
+         script {
+        dockerImage = docker.build registry + ":$BUILD_NUMBER"
+            }
+        }
+     }
 //     stage('Push the Docker Image to ECR'){
 //      steps {
 //         script {
