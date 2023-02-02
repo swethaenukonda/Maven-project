@@ -1,2 +1,0 @@
-[devservers]
-172.31.85.211 ansible_user=ansadmin
