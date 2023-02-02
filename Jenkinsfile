@@ -14,5 +14,12 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                }
+            }
+        }
     }
 }
