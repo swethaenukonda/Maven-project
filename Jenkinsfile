@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('checkout the project') {
             steps {
-                git branch: 'main', url: 'https://github.com/cbabu85/java-maven-pipeline-lara.git'
+                git branch: 'main', url: 'https://github.com/shashikrpet/java-maven-pipeline-jenkins.git'
             }
         }
         stage('Build the Package') {
