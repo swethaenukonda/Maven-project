@@ -1,25 +1,25 @@
 pipeline {
-    agent any
-    tools {
-        maven 'M2_HOME'
-    }
+    agent any 
+ tools{
+     maven 'M2_HOME'
+ }
     stages {
-        stage('checkout the project') {
+        stage('checkout from git') { 
             steps {
-                git branch: 'main', url: 'https://github.com/shashikrpet/java-maven-pipeline-jenkins.git'
+              git branch: 'main', url:  'https://github.com/swethaenukonda/addressbook.git'
             }
         }
-        stage('Build the Package') {
+        stage('build using maven') { 
             steps {
-                sh 'mvn clean package'
+                 sh 'mvn clean package'
             }
         }
-        stage('Build Docker Image') {
+        stage('build the docker image') { 
             steps {
-                script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                }
+                 sh 'docker build -t  addressbook.war  .'
             }
+        }
+
+            
         }
     }
-}
