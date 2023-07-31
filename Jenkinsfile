@@ -16,7 +16,7 @@ pipeline {
         }
         stage('build the docker image') { 
             steps {
-                 sh 'docker build -t  addressbook.war  .'
+                 sh 'docker build -t  dockeransible.war  .'
             }
         }
 
