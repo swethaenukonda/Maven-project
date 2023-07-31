@@ -14,12 +14,9 @@ pipeline {
                  sh 'mvn clean package'
             }
         }
-        stage('build the docker image') { 
-            steps {
-                 sh 'docker build -t  dockeransible.war  .'
             }
         }
 
             
         }
-    }
+    
